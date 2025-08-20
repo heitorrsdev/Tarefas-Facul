@@ -11,7 +11,7 @@ public class Calculadora {
     float multiplication = number1 * number2;
     double division = divisionByZero ? 0 : number1 / number2;
     float nthRoot = (float) Math.pow(number1, 1 / number2);
-    double power = divisionByZero ? 1 : Math.pow(number1, number2);
+    double power = Math.pow(number1, number2);
 
     System.out.println(
       "Resultados:\n" +
