@@ -1,7 +1,7 @@
 public class Calculadora {
   public static void main(String[] args) {
     float number1 = 27;
-    float number2 = 0;
+    float number2 = 3;
     System.out.println("\nNúmeros: " + number1 + " e " + number2 + "\n");
 
     boolean divisionByZero = number2 == 0;
@@ -18,11 +18,11 @@ public class Calculadora {
       "Soma: " + sum + "\n" +
       "Subtração: " + subtraction + "\n" +
       "Multiplicação: " + multiplication + "\n" +
-      "Potência: " + power + "\n"
+      "Potência: " + power
     );
 
     if( divisionByZero) {
-      System.out.println("Raiz n-esima e divisão não podem ser calculadas com índice/divisor zero.\n");
+      System.out.println("\nRaiz n-esima e divisão não podem ser calculadas com índice/divisor zero.\n");
     }
     else {
       System.out.println(
