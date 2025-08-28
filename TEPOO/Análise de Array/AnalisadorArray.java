@@ -5,8 +5,6 @@ public class AnalisadorArray {
     System.out.println("\nArray original:");
     showArray(numbers);
 
-    // Implemente as análises aqui
-
     System.out.println("\nArray ordenado:");
     sortArray(numbers);
     showArray(numbers);
