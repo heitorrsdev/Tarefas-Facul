@@ -33,7 +33,7 @@ public class ConversorTemperatura {
     double f = celsiusToFahrenheit(c);
     double k = celsiusToKelvin(c);
 
-    System.out.println("Conversões para" + c + "°C:");
+    System.out.println("Conversões para " + c + "°C:");
     System.out.println("Fahrenheit: " + f);
     System.out.println("Kelvin: " + k);
 
