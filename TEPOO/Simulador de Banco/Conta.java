@@ -1,56 +1,56 @@
 public class Conta {
-  private int numero;
-  private String titular;
-  private double saldo;
+  private int number;
+  private String owner;
+  private double balance;
 
   // Construtor
-  public Conta(int numero, String titular) {
-    this.numero = numero;
-    this.titular = titular;
-    this.saldo = 0.0;
+  public Conta(int number, String owner) {
+    this.number = number;
+    this.owner = owner;
+    this.balance = 0.0;
   }
 
-  public boolean depositar(double valor) {
-    if (valor > 0) {
-      saldo += valor;
+  public boolean deposit(double value) {
+    if (value > 0) {
+      balance += value;
       return true;
     }
     return false;
   }
 
-  public boolean sacar(double valor) {
-    if (valor > 0 && valor <= saldo) {
-      saldo -= valor;
+  public boolean withdraw(double value) {
+    if (value > 0 && value <= balance) {
+      balance -= value;
       return true;
     }
     return false;
   }
 
   // Getters e Setters
-  public int getNumero() {
-    return numero;
+  public int getNumber() {
+    return number;
   }
 
-  public String getTitular() {
-    return titular;
+  public String getOwner() {
+    return owner;
   }
 
-  public void setTitular(String titular) {
-    this.titular = titular;
+  public void setOwner(String owner) {
+    this.owner = owner;
   }
 
-  public double getSaldo() {
-    return saldo;
+  public double getBalance() {
+    return balance;
   }
 
   // Representação em texto (opcional, útil para debug)
   @Override
   public String toString() {
-    return "Conta Nº "
-        + numero
+    return "Conta N° "
+        + number
         + " | Titular: "
-        + titular
+        + owner
         + " | Saldo: R$ "
-        + String.format("%.2f", saldo);
+        + String.format("%.2f", balance);
   }
 }

@@ -1,18 +1,18 @@
 public class AnalisadorArray {
   public static void main(String[] args) {
-    int[] numeros = {23, 45, 12, 67, 89, 34, 56, 78, 90, 12};
+    int[] numbers = {23, 45, 12, 67, 89, 34, 56, 78, 90, 12};
 
     System.out.println("\nArray original:");
-    exibirArray(numeros);
+    showArray(numbers);
 
     // Implemente as análises aqui
 
     System.out.println("\nArray ordenado:");
-    ordenarArray(numeros);
-    exibirArray(numeros);
+    sortArray(numbers);
+    showArray(numbers);
   }
 
-  public static void exibirArray(int[] arr) {
+  public static void showArray(int[] arr) {
     // Implemente a exibição
     for (int num : arr) {
       System.out.print(num + " ");
@@ -20,7 +20,7 @@ public class AnalisadorArray {
     System.out.println();
   }
 
-  public static void ordenarArray(int[] arr) {
+  public static void sortArray(int[] arr) {
     for (int i = 0; i < arr.length - 1; i++) {
       for (int j = 0; j < arr.length - 1 - i; j++) {
         if (arr[j] > arr[j + 1]) {
