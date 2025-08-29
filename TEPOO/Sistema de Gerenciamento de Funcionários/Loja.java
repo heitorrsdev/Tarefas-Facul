@@ -12,7 +12,7 @@ public class Loja {
     ", Salário: R$" + vendedor.getSalario() +
     ", Bônus: R$" + vendedor.calcularBonus());
 
-    System.out.println("Este mês o gerente receberá um bônus, totalizando ganho de: R$" +
+    System.out.println("Este mês o gerente receberá um bônus, totalizando um ganho de: R$" +
     (gerente.getSalario() + gerente.calcularBonus()));
   }
 }
