@@ -15,16 +15,16 @@ public class CPFValidator {
       } else {
         System.out.println("CPF inválido!");
       }
-    } catch (CPFInvalidoException e) {
+    } catch (FormatoInvalidoException e) {
       System.out.println(e.getMessage()); // Exibe a mensagem da exceção
     }
 
     scanner.close();
   }
 
-  public static boolean isValidCPF(String cpf) throws CPFInvalidoException {
+  public static boolean isValidCPF(String cpf) throws FormatoInvalidoException {
     if (cpf.length() != 11 || cpf.chars().distinct().count() == 1) {
-      throw new CPFInvalidoException();
+      throw new FormatoInvalidoException();
     }
 
     int firstDigit = calculateDigit(cpf, 9);
