@@ -7,5 +7,4 @@ public class Vendedor extends Funcionario {
   public double calcularBonus() {
     return this.getSalario() * 0.15;
   }
-  
 }
