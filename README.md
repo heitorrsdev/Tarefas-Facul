@@ -16,7 +16,8 @@ O objetivo é registrar minha evolução acadêmica e prática, além de servir 
 
 ## 🔑 Abreviações das Disciplinas  
 
-- `TEPOO` → Tópicos Especiais de Programação Orientada a Objetos  
+- `TEPOO` → Tópicos Especiais de Programação Orientada a Objetos
+- `POO - 2` → Programação Orientada a Objetos 2
 
 *(A lista será atualizada conforme novas disciplinas forem adicionadas.)*  
 
