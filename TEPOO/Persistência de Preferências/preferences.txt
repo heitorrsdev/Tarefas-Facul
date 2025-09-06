@@ -1,0 +1,4 @@
+#User Preferences
+#Sat Sep 06 19:58:51 BRT 2025
+rememberMe=true
+username=admin
