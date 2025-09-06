@@ -24,25 +24,26 @@ class LoginForm extends JFrame {
     painelCampos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
     JLabel lblUsuario = new JLabel("Usuário:");
-    lblUsuario.setFont(fonteGrande);
     txtUsuario = new JTextField();
-    txtUsuario.setFont(fonteGrande);
 
     JLabel lblSenha = new JLabel("Senha:");
-    lblSenha.setFont(fonteGrande);
     txtSenha = new JPasswordField();
-    txtSenha.setFont(fonteGrande);
 
     painelCampos.add(lblUsuario);
     painelCampos.add(txtUsuario);
     painelCampos.add(lblSenha);
     painelCampos.add(txtSenha);
 
+    // Aplica a fonte a todos os componentes do painel
+    setFontRecursively(painelCampos, fonteGrande);
+
     // Painel do botão
     JPanel painelBotoes = new JPanel();
     btnLogin = new JButton("Entrar");
-    btnLogin.setFont(fonteGrande);
     painelBotoes.add(btnLogin);
+
+    // Aplica a fonte ao botão
+    btnLogin.setFont(fonteGrande);
 
     // Adiciona os painéis à janela
     add(painelCampos, BorderLayout.CENTER);
@@ -79,6 +80,16 @@ class LoginForm extends JFrame {
       showMessage("Login realizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     } else {
       showMessage("Usuário ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  // Método utilitário para aplicar fonte a todos os componentes de um container
+  private void setFontRecursively(Container container, Font font) {
+    for (Component comp : container.getComponents()) {
+      comp.setFont(font);
+      if (comp instanceof Container) {
+        setFontRecursively((Container) comp, font);
+      }
     }
   }
 }
