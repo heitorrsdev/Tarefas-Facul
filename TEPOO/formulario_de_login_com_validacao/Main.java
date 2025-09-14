@@ -1,0 +1,12 @@
+package TEPOO.formulario_de_login_com_validacao;
+
+import javax.swing.*;
+
+public class Main {
+  public static void main(String[] args) {
+    SwingUtilities.invokeLater(() -> {
+      LoginForm login = new LoginForm();
+      login.setVisible(true);
+    });
+  }
+}
