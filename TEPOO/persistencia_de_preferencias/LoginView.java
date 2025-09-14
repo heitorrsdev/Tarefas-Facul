@@ -1,7 +1,6 @@
 package TEPOO.persistencia_de_preferencias;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 public class LoginView extends JFrame {
