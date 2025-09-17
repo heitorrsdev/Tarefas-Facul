@@ -1,4 +1,4 @@
-package TEPOO.padroes_de_projeto;
+package TEPOO.padroes_de_projeto.strategy;
 
 
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package TEPOO.padroes_de_projeto;
+package TEPOO.padroes_de_projeto.strategy;
 
 public class LoginController {
   private AuthService authService;
