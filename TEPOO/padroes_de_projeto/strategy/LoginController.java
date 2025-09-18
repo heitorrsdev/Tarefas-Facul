@@ -32,7 +32,13 @@ public class LoginController {
     if (authService.authenticate(username, password)) {
       view.showMessage("Login realizado com sucesso!", "Sucesso");
     } else {
-      view.showMessage("Usuário ou senha incorretos.", "Erro");
+      if (strategy instanceof RegexAuth) {
+        view.showMessage("Senha deve conter ao menos 3 caracteres.", "Erro");
+        return;
+      } else if (strategy instanceof SimpleAuth) {
+        view.showMessage("Usuário ou senha incorretos.", "Erro");
+        return;
+      }
     }
   }
 }
