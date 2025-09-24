@@ -1,12 +1,20 @@
 package TEPOO.padroes_de_projeto.observer;
 
+import javax.swing.JLabel;
+
 public class StatusBarObserver implements LoginObserver {
+  private JLabel statusLabel;
+
+  public StatusBarObserver(JLabel statusLabel) {
+    this.statusLabel = statusLabel;
+  }
+
   @Override
   public void onLogin(boolean success) {
     if (!success) {
-      System.out.println("StatusBar: Falha no login.");
+      statusLabel.setText("Status: Falha no login.");
       return;
     }
-    System.out.println("StatusBar: Login bem-sucedido!");
+    statusLabel.setText("Status: Login bem-sucedido!");
   }
 }

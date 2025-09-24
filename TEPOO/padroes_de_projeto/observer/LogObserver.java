@@ -1,12 +1,20 @@
 package TEPOO.padroes_de_projeto.observer;
 
+import javax.swing.JTextArea;
+
 public class LogObserver implements LoginObserver {
+  private JTextArea logArea;
+
+  public LogObserver(JTextArea logArea) {
+    this.logArea = logArea;
+  }
+
   @Override
   public void onLogin(boolean success) {
     if (!success) {
-      System.out.println("Log: Usuário logado com sucesso.");
+      logArea.append("Log: Falha no login.\n");
       return;
     }
-    System.out.println("Log: Falha no login. Motivo: ");
+    logArea.append("Log: Login bem-sucedido!\n");
   }
 }
