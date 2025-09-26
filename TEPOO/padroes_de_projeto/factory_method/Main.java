@@ -6,10 +6,10 @@ public class Main {
   public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
       ScreenFactory factory = new LoginScreenFactory();
-      Screen view = factory.createScreen();
+      LoginScreen view = ((LoginScreen) factory.createScreen());
       AuthService service = new AuthService();
       new LoginController(service, view);
-      view.setVisible(true);
+      view.display();;
     });
   }
 }
