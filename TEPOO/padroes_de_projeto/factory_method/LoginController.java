@@ -2,9 +2,9 @@ package TEPOO.padroes_de_projeto.factory_method;
 
 public class LoginController {
   private AuthService authService;
-  private LoginView view;
+  private Screen view;
 
-  public LoginController(AuthService authService, LoginView view) {
+  public LoginController(AuthService authService, Screen view) {
     this.authService = authService;
     this.view = view;
 
@@ -12,18 +12,25 @@ public class LoginController {
     view.setController(this);
   }
 
-  public void handleLogin(String username, String password) {
-    User user = new User(username, password);
-
+  public void handleLogin(String username, String password) {    
     if (username.isEmpty() || password.isEmpty()) {
-      view.showMessage("Usuário e senha não podem estar vazios.", "Erro");
+      this.view.showMessage("Usuário e senha não podem estar vazios.", "Erro");
       return;
     }
 
-    if (authService.authenticate(user)) {
-      view.showMessage("Login realizado com sucesso!", "Sucesso");
-    } else {
-      view.showMessage("Usuário ou senha incorretos.", "Erro");
+    User user = new User(username, password);
+    
+    if (!authService.authenticate(user)) {
+      this.view.showMessage("Usuário ou senha incorretos.", "Erro");
+      return;
     }
+
+    this.view.showMessage("Login bem sucedido!", "Sucesso");
+    this.view.dispose();
+
+    ScreenFactory mainFactory = new MainScreenFactory();
+    Screen mainScreen = mainFactory.createScreen();
+
+    mainScreen.display();
   }
 }
