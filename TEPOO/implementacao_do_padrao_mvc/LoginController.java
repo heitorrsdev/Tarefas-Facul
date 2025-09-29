@@ -13,12 +13,12 @@ public class LoginController {
   }
 
   public void handleLogin(String username, String password) {
-    User user = new User(username, password);
-
     if (username.isEmpty() || password.isEmpty()) {
       view.showMessage("Usuário e senha não podem estar vazios.", "Erro");
       return;
     }
+
+    User user = new User(username, password);
 
     if (authService.authenticate(user)) {
       view.showMessage("Login realizado com sucesso!", "Sucesso");
