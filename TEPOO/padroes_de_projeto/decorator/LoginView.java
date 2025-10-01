@@ -7,30 +7,51 @@ public class LoginView extends JFrame {
   private JTextField txtUsuario;
   private JPasswordField txtSenha;
   private JButton btnLogin;
+  private JCheckBox chkLog;
   private LoginController controller;
 
   public LoginView() {
     setTitle("Login Decorator");
-    setSize(350, 200);
+    setSize(370, 240);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setLayout(new BorderLayout());
 
     Font fonteGrande = new Font("Arial", Font.PLAIN, 30);
 
-    JPanel painelCampos = new JPanel(new GridLayout(2, 2, 5, 5));
+    JPanel painelCampos = new JPanel(new GridBagLayout());
     painelCampos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.insets = new Insets(5, 5, 5, 5);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
 
     JLabel lblUsuario = new JLabel("Usuário:");
     txtUsuario = new JTextField();
-
     JLabel lblSenha = new JLabel("Senha:");
     txtSenha = new JPasswordField();
+    chkLog = new JCheckBox("Exibir log no console");
+    chkLog.setFont(new Font("Arial", Font.BOLD, 22));
 
-    painelCampos.add(lblUsuario);
-    painelCampos.add(txtUsuario);
-    painelCampos.add(lblSenha);
-    painelCampos.add(txtSenha);
+    // Linha 1
+    gbc.gridx = 0;
+    gbc.gridy = 0;
+    painelCampos.add(lblUsuario, gbc);
+    gbc.gridx = 1;
+    painelCampos.add(txtUsuario, gbc);
+
+    // Linha 2
+    gbc.gridx = 0;
+    gbc.gridy = 1;
+    painelCampos.add(lblSenha, gbc);
+    gbc.gridx = 1;
+    painelCampos.add(txtSenha, gbc);
+
+    // Linha 3 - Checkbox ocupa as duas colunas
+    gbc.gridx = 0;
+    gbc.gridy = 2;
+    gbc.gridwidth = 2;
+    painelCampos.add(chkLog, gbc);
+    gbc.gridwidth = 1;
 
     JPanel painelBotoes = new JPanel();
     btnLogin = new JButton("Entrar");
@@ -45,7 +66,8 @@ public class LoginView extends JFrame {
     // Ação do botão vai chamar o controller
     btnLogin.addActionListener(e -> {
       if (controller != null) {
-        controller.handleLogin(txtUsuario.getText(), new String(txtSenha.getPassword()));
+        boolean log = chkLog.isSelected();
+        controller.handleLogin(txtUsuario.getText(), new String(txtSenha.getPassword()), log);
       }
     });
   }
