@@ -1,0 +1,76 @@
+*Requisitos de Usuários
+
+- Funcionario do Caixa
+
+RU-001: Usuário pode visualizar uma lista de todos os produtos da loja com seus preços atualizado em tempo real
+RU-002: Usuário pode criar novos clientes utilizando suas informações (Nome, E-mail e Telefone)
+RU-003: Caixa deve conseguir excluir registros de vendas erradas 
+
+- Gerente de Loja
+
+RU-004: Gerente podera atualizar salário de funcionários
+
+*Requisitos de Sistema
+
+RS-001: Sistema deve exibir catálogo de itens, contendo a quantidade de unidades, preço nome
+
+Cenário: Acesso aos dados de produtos
+DADO que existem produtos cadasrados no sistemas 
+QUANDO o usuário solicitar a visualização do catálogo 
+ENTÃO o sistema deve acessar a lista de produtos armazenada em memória 
+E deve formatar e exibir os dados no console
+
+Cenário: Catálogo vazio
+DADO que não existe produtos cadastrados no sistema
+QUANDO  usuário soliticar a visualização do catálago
+ENTÃO o sistema deve exibir uma mensagem informando que o catálogo está vazio
+
+RS-002: Sistema deve criar novos clientes, contendo seus Nomes, E-mail e Número de telefone
+
+DADO que o usuário está na funcionalidade de cadastro de clientes
+QUANDO os dados do cliente forem fornecidos
+ENTÃO o sistema deve criar um novo registro de cliente na estrutura de dados em memória
+E deve atribuir um id único ao cliente
+
+RS-003: Sistema deve permitir atualização de salário de clientes
+
+DADO que o usuário possui permissão de gerente
+E que existe um funcionario cadastrado no sistema
+QUANDO o usúario solicitar a atualização de salário fornecendo o id do funcionário e o novo valor
+ENTAO o sistema deve localizar o funcionário na estrutura de dados
+E deve atualizar o valor do salário na memória
+E deve confirmar a atualização para o funcionário
+
+RS-004: Sistema deve realizar a exclusão de registros de vendas erradas
+
+DADO que existe uma venda resgistrada no sistema
+QUANDO o usúario solicitar a exclusão fornecendo o id da venda
+ENTÃO deve-se remover o registro da memória
+
+RS-005: Sistema deve operar em sistesa de console sem interface gráfica
+
+DADO que o sistema da loja seja iniciado
+QUADO o programa for executado no terminal
+ENTAO o sistema deve exibir uma interface de texto (terminal)
+E exibir suas principais funções
+
+RS-006: Sistema deve manter todos os dados (produtos, clientes, funcionários, vendas) em memória durante a execução
+
+DADO que o sistema tenha dados durante o funcionamento
+QUANDO o usuário solicitar o salvamento dos dados
+ENTÃO os dados serão salvos em um arquivo separado
+
+*Requisitos Funcionais
+RF-001: Visualizar catálago de produtos
+RF-002: Cadastrar novo cliente
+RF-003: Atualziar salário de funcionários
+RF-004: Excluir registro de venda
+RF-005: Apresentar menu de opções
+
+*Requisitos Não Funcionais
+RNF-001: Sistema deve executar todas as funções dos usuário em pelo menos 2 segundos	
+RNF-002: Sistema de console deve ser intuitivo e de facil navegação
+RNF-003: Sistema deve operar durante todo o horário de funcionamento da loja sem travamentos ou falhas
+RNF-004: A alteração de informações dos funcionários deve ser idealmente realizada somente pelo gerente
+RNF-005: Código deve ser bem estruturado, comentado e seguir padrões de codificação
+RNF-006: Compatível com os principais sistemas operacionáis (Windows, Linux, macOS)
